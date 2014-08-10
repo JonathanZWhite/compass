@@ -9,7 +9,8 @@ var bodyParser = require('body-parser'),
 	dust = require('dustjs-linkedin'),
 	express = require('express'),
 	mongoose = require('mongoose'),
-	path = require('path');
+	path = require('path'),
+	BaseModel = require('models/BaseModel');
 
 var app = express();
 
@@ -34,8 +35,8 @@ app.use(bodyParser.json());
  * Controllers
  */
 
-var HomeController = require('./controllers/homeController.js');
-var APIController = require('./controllers/apiController.js');
+var HomeController = require('./controllers/HomeController.js');
+var ApiController = require('./controllers/ApiController.js');
 
 /**
  * Establishes MongoDB connection
@@ -59,8 +60,8 @@ app.get('/', HomeController.index);
  * API routes
  */
 
- app.get('/api/route1', APIController.route1);
- app.get('/api/route2', APIController.route2);
+ app.get('/api/get1', ApiController.get1);
+ app.get('/api/get2', ApiController.get2);
 
  /**
  * Starts server 
