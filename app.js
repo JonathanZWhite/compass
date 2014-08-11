@@ -32,11 +32,16 @@ app.use(bodyParser.json());
 var ArticleController = require('./controllers/ArticleController');
 
 /**
+ * Secrets and API keys
+ */
+
+var secrets = require('./config/secrets');
+
+/**
  * Establishes MongoDB connection
  */ 
 
-// TODO create a secrets in config 
-var db = mongoose.connect('mongodb://localhost:27017/compass', function(err) {
+var db = mongoose.connect(secrets.db, function(err) {
 	if (err) {
 		console.error('Could not establish connection with MongoDB');
 		console.log(err);
@@ -50,9 +55,9 @@ var db = mongoose.connect('mongodb://localhost:27017/compass', function(err) {
  app.get('/api/article-create', ArticleController.create);
  app.get('/api/article-read', ArticleController.read);
 
- /**
-  * Start server 
-  */
+/**
+ * Start server 
+ */
 
 app.listen(app.get('port'), function() {
 	console.log('Express listening to port', app.get('port'));

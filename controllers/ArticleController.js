@@ -11,13 +11,9 @@ var mongoose = require('mongoose'),
 var ArticleController = function() {};
 
 ArticleController.prototype.create = function(req, res) {
-	var articleModel = new ArticleModel();
+	var article = new ArticleModel(req.body);
 
-	articleModel.author = 'Jonathan';
-	articleModel.title = 'Some post title';
-	articleModel.body = 'Some post body';
-
-	articleModel.save(function(err) {
+	article.save(function(err) {
 		if (err) {
 			res.status(400).send('Error creating article');
 		} else {
