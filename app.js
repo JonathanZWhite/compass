@@ -5,13 +5,9 @@
  */
 
 var bodyParser = require('body-parser'),
-	consolidate = require('consolidate'),
-	dust = require('dustjs-linkedin'),
 	express = require('express'),
 	mongoose = require('mongoose'),
 	path = require('path');
-
-var BaseModelSchema = require('./models/BaseModel');
 
 var app = express();
 
@@ -19,11 +15,8 @@ var app = express();
  * Express configuration
  */
 
-app.engine('dust', consolidate.dust);
-
 app.set('port', 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'dust');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -32,12 +25,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-/**!!
+/**
  * Controllers
  */
 
-var HomeController = require('./controllers/HomeController.js');
-var ApiController = require('./controllers/ApiController.js');
+var ArticleController = require('./controllers/ArticleController');
 
 /**
  * Establishes MongoDB connection
@@ -52,23 +44,15 @@ var db = mongoose.connect('mongodb://localhost:27017/compass', function(err) {
 });
 
 /**
- * Main routes
- */
-
-app.get('/', HomeController.index);
-
-/**
  * API routes
  */
 
- app.get('/api/get1', ApiController.get1);
- app.get('/api/get2', ApiController.get2);
- app.get('/api/create1', ApiController.create1);
- app.get('/api/read1', ApiController.read1);
+ app.get('/api/article-create', ArticleController.create);
+ app.get('/api/article-read', ArticleController.read);
 
  /**
- * Starts server 
- */
+  * Start server 
+  */
 
 app.listen(app.get('port'), function() {
 	console.log('Express listening to port', app.get('port'));
