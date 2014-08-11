@@ -9,8 +9,9 @@ var bodyParser = require('body-parser'),
 	dust = require('dustjs-linkedin'),
 	express = require('express'),
 	mongoose = require('mongoose'),
-	path = require('path'),
-	BaseModel = require('models/BaseModel');
+	path = require('path');
+
+var BaseModelSchema = require('./models/BaseModel');
 
 var app = express();
 
@@ -31,7 +32,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-/**
+/**!!
  * Controllers
  */
 
@@ -62,6 +63,8 @@ app.get('/', HomeController.index);
 
  app.get('/api/get1', ApiController.get1);
  app.get('/api/get2', ApiController.get2);
+ app.get('/api/create1', ApiController.create1);
+ app.get('/api/read1', ApiController.read1);
 
  /**
  * Starts server 

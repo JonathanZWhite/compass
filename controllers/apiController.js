@@ -5,6 +5,7 @@
  */
 
 var mongoose = require('mongoose'),
+	BaseModelSchema = require('../models/BaseModel'),
 	BaseModel = mongoose.model('BaseModel');
 
 exports.get1 = function(req, res) {
@@ -15,4 +16,29 @@ exports.get1 = function(req, res) {
 exports.get2 = function(req, res) {
 	var mockData = ["Pork belly in pariatur sed flank bresaola dolor pork.  Ribeye jerky laborum pig dolore in ball tip id est filet mignon turkey biltong anim meatball officia.  Nulla porchetta drumstick, salami enim ut ut mollit.  Occaecat in brisket prosciutto.  Incididunt consequat ground round cillum dolor pariatur pork belly minim frankfurter.","Filet mignon corned beef aliqua qui shank velit tenderloin in dolore andouille swine esse irure flank.  Esse ball tip pariatur pastrami bresaola ut nisi eiusmod flank qui dolor shoulder aute.  Culpa voluptate tongue pastrami, porchetta consequat sunt laborum id nisi.  Corned beef fatback ut shankle enim.  Minim tempor chuck deserunt est.  Ham aliquip qui shoulder enim prosciutto nisi t-bone corned beef meatball exercitation fugiat.  Qui in dolore cow.","Turducken pariatur nulla veniam.  Chicken short ribs magna shoulder.  Non jerky ex, dolore id ad culpa meatball aliqua esse salami doner cupidatat sint.  Ex turkey chuck eu, jerky consequat swine rump hamburger pork chicken pork belly.  Fatback culpa capicola, commodo reprehenderit ribeye ut exercitation chicken dolore.  Est salami kevin, mollit shoulder reprehenderit id aliqua duis.","Flank doner nulla pastrami chuck, pork loin sed frankfurter.  Drumstick excepteur shank eiusmod tempor, cow meatball hamburger ea bacon proident.  Laborum ut t-bone shank ex fatback, kevin pariatur aliqua qui veniam magna.  Non rump hamburger excepteur ham hock chicken officia pancetta tri-tip.  Kielbasa occaecat shankle nulla adipisicing veniam velit dolore chicken et.","Laboris jowl beef in tri-tip jerky shankle short ribs in.  Ad commodo cow velit meatball enim fatback pork, laborum ut proident.  Prosciutto laboris drumstick, salami excepteur tail esse ham culpa short loin.  Occaecat cow bresaola sint consequat beef ribs labore strip steak nisi.  Pig id fugiat cow."];
 	res.send(mockData);
+};
+
+exports.create1 = function(req, res) {
+	var baseModel = new BaseModel();
+
+	baseModel.title = 'This is a title';
+	baseModel.body = 'This is a body';
+
+	baseModel.save(function(err) {
+		if (err) {
+			res.status(400).send('There was an error adding baseModel');
+		} else {
+			res.send('baseModel saved');
+		}
+	});
+};
+
+exports.read1 = function(req, res) {
+	BaseModel.find({}, function(err, data) {
+		if (err) {
+			res.status(400).send('Error: ' + err);
+		} else {
+			res.send(data);
+		}
+	});
 };
