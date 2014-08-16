@@ -9,9 +9,9 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Base Schema 
+ * Base Schema
  */
- 
+
 var ArticleSchema = new Schema({
 	author: String,
 	title: String,
