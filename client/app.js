@@ -27,6 +27,8 @@ function AppController ( $scope, $location ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $scope.pageTitle = toState.data.pageTitle;
   });
+
+  $scope.data = 'test';
 }
 
 angular
