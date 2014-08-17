@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 	// Default to force
 	grunt.option('force', true);
 
-	grunt.registerTask('default', ['bower']);
+	grunt.registerTask('default', ['clean', 'bower', 'jshint', 'connect', 'nodemon']);
 
 };
 
