@@ -28,11 +28,12 @@ function AppController ( $scope, $location ) {
     $scope.pageTitle = toState.data.pageTitle;
   });
 
-  $scope.data = 'test';
+  $scope.data = 'Hello! Compass is a lightweight full stack javascript framework';
 }
 
 angular
   .module('app', [
+    'app.home',
     // Dependencies
     'ngAnimate',
     'ngResource',
@@ -40,7 +41,6 @@ angular
   ])
   .config(config)
   .controller('AppController', AppController);
-
 
 
 
