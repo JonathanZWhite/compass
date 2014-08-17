@@ -36,8 +36,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('bower', 'install bower dependencies', function() {
         var exec = require('child_process').exec;
         var cb = this.async();
-        exec('bower install', {cwd: './client'}, function(err, stdout, stderr) {
-            console.log(stdout);
+        exec('bower install', function(err, stdout, stderr) {
+            console.log(stdout + err);
             cb();
         });
     });
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 	// Default to force
 	grunt.option('force', true);
 
-	grunt.registerTask('default', ['bower', 'connect', 'jshint', 'nodemon']);
+	grunt.registerTask('default', ['bower']);
 
 };
 
