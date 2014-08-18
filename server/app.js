@@ -40,7 +40,7 @@ var secrets = require('./config/secrets');
 
 /**
  * Establishes MongoDB connection
- */ 
+ */
 
 var db = mongoose.connect(secrets.db, function(err) {
 	if (err) {
@@ -57,7 +57,7 @@ var db = mongoose.connect(secrets.db, function(err) {
  app.get('/api/article-read', ArticleController.read);
 
 /**
- * Start server 
+ * Start server
  */
 
 app.listen(app.get('port'), function() {
