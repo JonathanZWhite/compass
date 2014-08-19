@@ -108,16 +108,16 @@ module.exports = function(grunt) {
 	// Default to force
 	grunt.option('force', true);
 
-	// grunt.registerTask('default', ['clean', 'bower', 'nodemon', 'jshint', 'connect']);
+	// Grunt dev
 	grunt.registerTask('dev', function() {
-		// var nodemon = grunt.util.spawn({
-	 //        cmd: 'grunt',
-	 //        grunt: true,
-	 //        args: 'nodemon'
-	 //    });
+		var nodemon = grunt.util.spawn({
+	        cmd: 'grunt',
+	        grunt: true,
+	        args: 'nodemon'
+	    });
 
-	 //    nodemon.stdout.pipe(process.stdout);
-  //   	nodemon.stderr.pipe(process.stderr);
+	    nodemon.stdout.pipe(process.stdout);
+    	nodemon.stderr.pipe(process.stderr);
 
 		grunt.task.run([
 			'bower',
