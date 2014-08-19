@@ -8,3 +8,4 @@ function HomeController( $scope ) {
 angular
   .module('app.home', [])
   .controller('HomeController', ['$scope', HomeController]);
+
