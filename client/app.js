@@ -1,7 +1,7 @@
-'use strict';
+  'use strict';
 
 function config ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/' );
+  $urlRouterProvider.otherwise( '/home' );
   $stateProvider
     // Example of abstract root
     .state( 'root', {
@@ -12,11 +12,11 @@ function config ( $stateProvider, $urlRouterProvider ) {
 
     // Home (child of root)
     .state( 'root.index', {
-      url: '/',
+      url: '/home',
       views: {
         'content@': {
           controller: 'HomeController',
-          templateUrl: 'home.html'
+          templateUrl: '../client/home/home.tpl.html'
         }
       },
       data:{ pageTitle: 'Home' }
@@ -34,6 +34,8 @@ function AppController ( $scope, $location ) {
 angular
   .module('app', [
     'app.home',
+    // Templates
+    'templates-dist',
     // Dependencies
     'ngAnimate',
     'ngResource',

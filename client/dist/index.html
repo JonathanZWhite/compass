@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-controller="AppController">
+<html>
   <head>
     <title ng-bind="pageTitle"></title>
 
@@ -14,12 +14,22 @@
     <!-- jquery CDN -->
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 
+    <!-- Bower dependencies -->
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="lib/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- Minified app -->
+    <script type="text/javascript" src="app.js"></script>
+
   </head>
-  <body>
+  <body ng-app="app" ng-controller="AppController">
     <div class="container-fluid">
         <div class="row">
 
           <section id="home" ui-view="home"></section>
+          <section id="content" ui-view="content"></section>
 
         </div>
     </div>

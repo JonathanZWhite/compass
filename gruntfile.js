@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-html2js');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -31,7 +32,7 @@ module.exports = function(grunt) {
 				seperator: ';'
 			},
 			dist: {
-				src: ['client/*.js', 'client/tmp/*.js'],
+				src: ['client/*.js', 'client/tmp/*.js', 'client/home/*.js'],
 				dest: 'client/dist/app.js'
 			}
 		},
@@ -46,14 +47,21 @@ module.exports = function(grunt) {
 			server: {
 				options: {
 					hostname: 'localhost',
-					port: 9001
+					port: 9001,
+					base: ['client/dist']
 				}
+			}
+		},
+		copy: {
+			main: {
+				src: 'client/index.html',
+				dest: 'client/dist/index.html',
 			}
 		},
 		// Converts templates to js
 		html2js: {
 			dist: {
-				src: [ 'client/**/*.html' ],
+				src: [ 'client/**/*.tpl.html' ],
 				dest: 'client/tmp/templates.js'
 			}
 		},
@@ -87,7 +95,7 @@ module.exports = function(grunt) {
 		watch: {
 			dev: {
 				files: ['Grunfile.js', 'client/components/**/*.js', 'client/home/*.js','*.html'],
-				tasks: ['jshint', 'html2js:dist', 'concat:dist', 'clean:temp', 'uglify:dist'],
+				tasks: ['jshint', 'html2js:dist', 'copy:main','concat:dist', 'clean:temp', 'uglify:dist'],
 				options: {
 					atBegin: true
 				}
@@ -119,14 +127,18 @@ module.exports = function(grunt) {
 	    nodemon.stdout.pipe(process.stdout);
     	nodemon.stderr.pipe(process.stderr);
 
-		grunt.task.run([
-			'bower',
-			'connect:server',
-			'watch:dev'
-		]);
+		grunt.task.run(['bower', 'connect:server', 'watch:dev']);
 	});
 
-	// grunt.registerTask('dev', [ 'bower', 'connect:server', 'watch:dev' ]);
+	grunt.registerTask('dev', function() {
+		var nodemon = grunt.util.spans({
+	        cmd: 'grunt',
+	        grunt: true,
+	        args: 'nodemon'
+		});
+
+		grunt.task.run([ 'bower', 'connect:server', 'watch:dev' ]);
+	});
 	// grunt.registerTask('minified', [ 'bower', 'connect:server', 'watch:min' ]);
 	// grunt.registerTask('package', [ 'bower', 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist', 'uglify:dist','clean:temp', 'compress:dist' ]);
 
