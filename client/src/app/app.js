@@ -16,7 +16,7 @@ function config ( $stateProvider, $urlRouterProvider ) {
       views: {
         'content@': {
           controller: 'HomeController',
-          templateUrl: '../client/home/home.tpl.html'
+          templateUrl: '../client/src/app/home/home.tpl.html'
         }
       },
       data:{ pageTitle: 'Home' }

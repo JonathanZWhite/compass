@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-html2js');
@@ -32,7 +33,14 @@ module.exports = function(grunt) {
 				seperator: ';'
 			},
 			dist: {
-				src: ['client/*.js', 'client/tmp/*.js', 'client/home/*.js'],
+				src: [
+					// App
+					'client/src/app/*.js',
+					// Template
+					'client/tmp/*.js',
+					// Modules
+					'client/src/app/**/*.js'
+				],
 				dest: 'client/dist/app.js'
 			}
 		},
@@ -61,7 +69,12 @@ module.exports = function(grunt) {
 		// Converts templates to js
 		html2js: {
 			dist: {
-				src: [ 'client/**/*.tpl.html' ],
+				src: [
+					// Module templates
+					'client/src/app/**/*.tpl.html',
+					// Component templates
+					'client/src/components/**/*.tpl.html'
+				],
 				dest: 'client/tmp/templates.js'
 			}
 		},
@@ -69,6 +82,23 @@ module.exports = function(grunt) {
 		jshint: {
 			all: {
 				src: ['gruntfile.js', 'app.js','controllers/*.js', 'models/*.js', 'config/*.js']
+			}
+		},
+		// Compiles LESS
+		less: {
+			dev: {
+				files: {
+					'client/dist/style.css': 'client/src/less/main.less'
+				}
+			},
+			dist: {
+				options: {
+					cleancss: true,
+          			compress: true
+				},
+				files: {
+					'client/dist/style.css': 'client/src/less/main.less'
+				}
 			}
 		},
 		// Starts BE server
@@ -94,15 +124,49 @@ module.exports = function(grunt) {
 		// Watches changes in files
 		watch: {
 			dev: {
-				files: ['Grunfile.js', 'client/components/**/*.js', 'client/home/*.js','*.html'],
-				tasks: ['jshint', 'html2js:dist', 'copy:main','concat:dist', 'clean:temp', 'uglify:dist'],
+				files: [
+					'Grunfile.js',
+					// App
+					'client/src/app/*.js',
+					// Index
+					'client/*.html',
+					// Components
+					'client/src/components/**/*.js',
+					// Components (templates)
+					'client/src/components/**/*.tpl.html',
+					// Modules
+					'client/src/app/**/*.js',
+					// Modules (templates)
+					'client/src/app/**/*.tpl.html',
+					// Modules (LESS)
+					'client/src/app/**/*.less',
+					// LESS
+					'client/src/less/*.less'
+				],
+				tasks: ['jshint', 'html2js:dist', 'copy:main','concat:dist', 'less:dev', 'clean:temp', 'uglify:dist'],
 				options: {
 					atBegin: true
 				}
 			},
 			min: {
-				files: ['Gruntfile.js', 'client/**/*.js', '*.html'],
-				tasks: ['jshint', 'html2js:dist', 'concat:dist', 'clean:temp', 'uglify:dist'],
+				files: [
+					'Grunfile.js',
+					// App
+					'client/src/app/*.js',
+					// Index
+					'client/*.html',
+					// Components
+					'client/src/components/**/*.js',
+					// Components (templates)
+					'client/src/components/**/*.tpl.html',
+					// Modules
+					'client/src/app/**/*.js','*.html',
+					// Modules (templates)
+					'client/src/app/**/*.tpl.html',
+					// LESS
+					'client/src/less/*.less'
+				],
+				tasks: ['jshint', 'html2js:dist', 'concat:dist', 'less:dist','clean:temp', 'uglify:dist'],
 				options: {
 					atBegin: true
 				}
@@ -130,15 +194,6 @@ module.exports = function(grunt) {
 		grunt.task.run(['bower', 'connect:server', 'watch:dev']);
 	});
 
-	grunt.registerTask('dev', function() {
-		var nodemon = grunt.util.spawn({
-	        cmd: 'grunt',
-	        grunt: true,
-	        args: 'nodemon'
-		});
-
-		grunt.task.run([ 'bower', 'connect:server', 'watch:dev' ]);
-	});
 	// grunt.registerTask('minified', [ 'bower', 'connect:server', 'watch:min' ]);
 	// grunt.registerTask('package', [ 'bower', 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist', 'uglify:dist','clean:temp', 'compress:dist' ]);
 
