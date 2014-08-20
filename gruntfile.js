@@ -131,7 +131,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('dev', function() {
-		var nodemon = grunt.util.spans({
+		var nodemon = grunt.util.spawn({
 	        cmd: 'grunt',
 	        grunt: true,
 	        args: 'nodemon'
