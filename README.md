@@ -8,6 +8,8 @@ This boilerplate was written in order to let you get started on a MEAN stack pro
 
 ###Quick Start
 ```
+$ git clone https://github.com/JonathanZWhite/compass.git
+$ cd compass
 $ npm install
 $ grunt dev
 ```
@@ -17,3 +19,9 @@ $ grunt dev
 - [Bower](http://bower.io/)
 - [Grunt](http://gruntjs.com/installing-grunt)
 - [Mongodb](http://docs.mongodb.org/manual/installation/)
+
+####Architecture
+
+#####Front-end
+
+#####Back-end
