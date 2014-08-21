@@ -28,7 +28,6 @@ client/
 -- src/
 ---- app/
 ------ <modules i.e. home, about, etc.>/
--------- <pages>
 ------ app.js
 ---- assets
 ------ <static files>
