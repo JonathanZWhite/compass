@@ -7,7 +7,8 @@ Motivation
 =======
 This boilerplate was written in order to let you get started on a MEAN stack project right away without having to worry about all the boilerplate code. 
 
-###Quick Start
+Quick Start
+=======
 ```
 $ git clone https://github.com/JonathanZWhite/compass.git
 $ cd compass
@@ -15,15 +16,16 @@ $ npm install
 $ grunt dev
 ```
 
-####Prerequisites
+Prerequisites
 - [Nodejs](http://nodejs.org/download/)
 - [Bower](http://bower.io/)
 - [Grunt](http://gruntjs.com/installing-grunt)
 - [Mongodb](http://docs.mongodb.org/manual/installation/)
 
-####Architecture
+Architecture
+=======
 
-#####Front-end
+###Front-end
 ```
 client/ 
 -- src/
@@ -39,4 +41,4 @@ client/
 ```
 
 
-#####Back-end
+###Back-end
