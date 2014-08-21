@@ -28,14 +28,19 @@ Detailed Installation
 =======
 1. Install the necessary global dependencies, these include bower and grunt.
 
-  `npm -g install grunt-cli bower`
+  `$ npm -g install grunt-cli bower`
   
 2. Install Mongodb
   ```
   $ brew update
   $ brew install mongodb
   ```
-3.
+  
+3. Start your mongodb
+  `$ mongod`
+
+4. Build the project
+  `$ grunt dev`
 
 Architecture
 =======
