@@ -24,7 +24,7 @@ Prerequisites
 - [Mongodb](http://docs.mongodb.org/manual/installation/)
 
 
-Detailed Installation
+Installation
 =======
 1. Install the necessary global dependencies, these include bower and grunt.
 
@@ -37,10 +37,20 @@ Detailed Installation
   ```
   
 3. Start your mongodb
+
   `$ mongod`
 
 4. Build the project
+
   `$ grunt dev`
+
+5. Visit your server at /api/article-read to see a fake endpoint
+
+  `http://localhost:3000/api/article-read`
+
+6. Visit your client in the root directory to see a module
+
+  `http://localhost:9001/`
 
 Architecture
 =======
