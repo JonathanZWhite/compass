@@ -40,7 +40,7 @@ client/
 ------ <general less files>
 ```
 
-####Design philosophy
+#####Design philosophy
 The Angular front-end is built in a module fashion. Each module represents a respective page and contains a `controller`, `template`, and `less file`. This design is in order to reduce the need to visit multiple directories in order to modify one page. Instead, everything is located in its respective module. Likewise, components follow the same philosophy. Components may contain a `directive`, `service`, and `template`. Think components as reusable snippets of code designed to keep your code DRY and can be injected into your modules. This line of thought borrows heavily from the philosphy behind the [React framework](http://facebook.github.io/react/). 
 
 ###Back-end
