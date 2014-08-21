@@ -3,7 +3,8 @@ Compass
 
 Lightweight full stack javascript boilerplate that makes using Mongo, Node, Angular, and Express a breeze.
 
-###Motivation
+Motivation
+=======
 This boilerplate was written in order to let you get started on a MEAN stack project right away without having to worry about all the boilerplate code. 
 
 ###Quick Start
