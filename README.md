@@ -28,14 +28,14 @@ client/
 -- components/
 -- src/
 ---- app/
------- [Modules i.e. home, about, etc.]/
--------- [Module files]
+------ <modules i.e. home, about, etc.>
+-------- <module files>
 ------ app.js
 ---- assets
 ---- components
------- [Directives/Services]/
--------- [Directive]
--------- [Service]
+------ <directives/services>
+-------- <directive>
+-------- <service>
 ---- less
 ------ main.less
 ------ typography.less
