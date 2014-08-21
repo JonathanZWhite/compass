@@ -13,7 +13,7 @@ $ grunt dev
 ```
 
 ####Prerequisites
-[Nodejs](http://nodejs.org/download/)
-[Bower](http://bower.io/)
-[Grunt](http://gruntjs.com/installing-grunt)
-[Mongodb](http://docs.mongodb.org/manual/installation/)
+- [Nodejs](http://nodejs.org/download/)
+- [Bower](http://bower.io/)
+- [Grunt](http://gruntjs.com/installing-grunt)
+- [Mongodb](http://docs.mongodb.org/manual/installation/)
