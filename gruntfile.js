@@ -39,7 +39,9 @@ module.exports = function(grunt) {
 					// Template
 					'client/tmp/*.js',
 					// Modules
-					'client/src/app/**/*.js'
+					'client/src/app/**/*.js',
+					// Components
+					'client/src/components/**/*.js'
 				],
 				dest: 'client/dist/app.js'
 			}
@@ -81,7 +83,14 @@ module.exports = function(grunt) {
 		// Runs jshint TODO: add all files
 		jshint: {
 			all: {
-				src: ['gruntfile.js', 'app.js','controllers/*.js', 'models/*.js', 'config/*.js']
+				src: [
+					'gruntfile.js',
+					// Modules
+					'client/src/app/**/*.js',
+					'client/src/app/*.js',
+					// Components
+					'client/components/**/*.js'
+				]
 			}
 		},
 		// Compiles LESS

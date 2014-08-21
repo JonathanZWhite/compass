@@ -25,6 +25,8 @@ ArticleController.prototype.create = function(req, res) {
 };
 
 ArticleController.prototype.read = function(req, res) {
+	res.header('Access-Control-Allow-Origin', 'localhost:9001');
+
 	ArticleModel.find({}, function(err, data) {
 		if (err || !data) {
 			res.status(400).send('Error: ' + err);

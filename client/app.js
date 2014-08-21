@@ -1,4 +1,4 @@
-  'use strict';
+'use strict';
 
 function config ( $stateProvider, $urlRouterProvider ) {
   $urlRouterProvider.otherwise( '/home' );
@@ -16,33 +16,24 @@ function config ( $stateProvider, $urlRouterProvider ) {
       views: {
         'content@': {
           controller: 'HomeController',
-          templateUrl: '../client/src/app/home/home.tpl.html'
+          template: 'home'
         }
       },
       data:{ pageTitle: 'Home' }
     });
 }
 
-function AppController ( $scope, $location, API) {
+function AppController ( $scope, $location ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $scope.pageTitle = toState.data.pageTitle;
   });
 
-  console.log(API);
-
-  API.endpoint.get(function(data) {
-    console.log(data);
-  });
+  $scope.data = 'Hello! Compass is a lightweight full stack javascript framework';
 }
 
 angular
   .module('app', [
-    // Modules
     'app.home',
-    // Components
-    'services.API',
-    // Templates
-    'templates-dist',
     // Dependencies
     'ngAnimate',
     'ngResource',

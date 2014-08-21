@@ -1,11 +1,12 @@
 'use strict';
 
-function HomeController( $scope ) {
+function HomeController($scope) {
   var homeString = 'This is the home page';
   $scope.data = homeString;
 }
 
 angular
-  .module('app.home', [])
+  .module('app.home', [
+  	'ui.router'
+  ])
   .controller('HomeController', ['$scope', HomeController]);
-
