@@ -17,14 +17,20 @@ $ grunt dev
 ```
 
 Prerequisites
+=======
 - [Nodejs](http://nodejs.org/download/)
 - [Bower](http://bower.io/)
 - [Grunt](http://gruntjs.com/installing-grunt)
 - [Mongodb](http://docs.mongodb.org/manual/installation/)
 
+
+Detailed Installation
+=======
+Install the necessary global dependencies, these include bower and grunt.
+`npm -g install grunt-cli bower`
+
 Architecture
 =======
-
 ###Front-end
 ```
 client/ 
