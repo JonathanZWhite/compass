@@ -28,18 +28,14 @@ client/
 -- src/
 ---- app/
 ------ <modules i.e. home, about, etc.>/
--------- <module files>
+-------- <pages>
 ------ app.js
 ---- assets
+------ <static files>
 ---- components
------- <directives/services>/
--------- <directive>
--------- <service>
--------- <templates>
+------ <reusable components>
 ---- less
------- main.less
------- typography.less
------- variables.less
+------ <general less files>
 ```
 
 
