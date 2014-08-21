@@ -28,12 +28,12 @@ client/
 -- components/
 -- src/
 ---- app/
------- <modules i.e. home, about, etc.>
+------ <modules i.e. home, about, etc.>/
 -------- <module files>
 ------ app.js
 ---- assets
 ---- components
------- <directives/services>
+------ <directives/services>/
 -------- <directive>
 -------- <service>
 ---- less
