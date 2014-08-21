@@ -23,5 +23,24 @@ $ grunt dev
 ####Architecture
 
 #####Front-end
+```
+client/ 
+--components/
+--src/
+----app/
+------[Modules i.e. home, about, etc.]/
+--------[Module files]
+------app.js
+----assets
+----components
+------[Directives/Services]/
+--------[Directive]
+--------[Service]
+----less
+------main.less
+------typography.less
+------variables.less
+```
+
 
 #####Back-end
