@@ -25,7 +25,6 @@ $ grunt dev
 #####Front-end
 ```
 client/ 
--- components/
 -- src/
 ---- app/
 ------ <modules i.e. home, about, etc.>/
@@ -36,6 +35,7 @@ client/
 ------ <directives/services>/
 -------- <directive>
 -------- <service>
+-------- <templates>
 ---- less
 ------ main.less
 ------ typography.less
