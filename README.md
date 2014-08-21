@@ -27,6 +27,7 @@ Prerequisites
 Detailed Installation
 =======
 Install the necessary global dependencies, these include bower and grunt.
+
 `npm -g install grunt-cli bower`
 
 Architecture
