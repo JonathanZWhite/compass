@@ -1,12 +1,12 @@
+/*global angular:false */
 'use strict';
 
 function HomeController ($scope, $location, API) {
   console.log(API);
 
   API.endpoint.get(function(data) {
-    console.log(data);
+    $scope.data = data;
   });
-
 }
 
 angular

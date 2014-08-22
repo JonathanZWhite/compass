@@ -80,8 +80,11 @@ module.exports = function(grunt) {
 				dest: 'client/tmp/templates.js'
 			}
 		},
-		// Runs jshint TODO: add all files
+		// Runs jshint
 		jshint: {
+			options: {
+				node: true
+			},
 			all: {
 				src: [
 					'gruntfile.js',
