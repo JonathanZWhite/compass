@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		},
 		copy: {
 			main: {
-				src: 'client/index.html',
+				src: 'client/src/app/index.html',
 				dest: 'client/dist/index.html',
 			}
 		},
