@@ -12,6 +12,7 @@ var mongoose = require('mongoose'),
 var ArticleController = function() {};
 
 ArticleController.prototype.create = function(req, res) {
+
 	var article = new ArticleModel(req.body);
 
 	article.save(function(err) {
@@ -25,7 +26,6 @@ ArticleController.prototype.create = function(req, res) {
 };
 
 ArticleController.prototype.read = function(req, res) {
-	res.header('Access-Control-Allow-Origin', 'localhost:9001');
 
 	ArticleModel.find({}, function(err, data) {
 		if (err || !data) {
@@ -37,3 +37,5 @@ ArticleController.prototype.read = function(req, res) {
 };
 
 module.exports = new ArticleController();
+
+

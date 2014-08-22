@@ -1,12 +1,24 @@
 'use strict';
 
-function HomeController($scope) {
-  var homeString = 'This is the home page';
-  $scope.data = homeString;
+function HomeController ($scope, $location, API) {
+  console.log(API);
+
+  API.endpoint.get(function(data) {
+    console.log(data);
+  });
+
 }
 
 angular
   .module('app.home', [
-  	'ui.router'
+    // Templates
+    'templates-dist',
+    // Components
+    'services.API'
   ])
-  .controller('HomeController', ['$scope', HomeController]);
+  .controller('HomeController', HomeController);
+
+
+
+
+

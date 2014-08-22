@@ -27,12 +27,6 @@ function AppController ( $scope, $location, API) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $scope.pageTitle = toState.data.pageTitle;
   });
-
-  console.log(API);
-
-  API.endpoint.get(function(data) {
-    console.log(data);
-  });
 }
 
 angular

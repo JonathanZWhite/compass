@@ -6,7 +6,7 @@ function API($resource) {
         endpoint: $resource(endpoint, {}, {
             get: {
                 method: 'GET',
-                isArray: false
+                isArray: true
             }
         })
     };
