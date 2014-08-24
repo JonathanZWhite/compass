@@ -66,6 +66,13 @@ module.exports = function(grunt) {
 			main: {
 				src: 'client/src/app/index.html',
 				dest: 'client/dist/index.html',
+			},
+			assets: {
+				expand: true,
+				flatten: true,
+				filter: 'isFile',
+				src: ['client/src/assets/**/*.{png, jpg, gif, jpeg}'],
+				dest: 'client/dist/assets/images'
 			}
 		},
 		// Converts templates to js
@@ -155,7 +162,7 @@ module.exports = function(grunt) {
 					// LESS
 					'client/src/less/*.less'
 				],
-				tasks: ['jshint', 'html2js:dist', 'copy:main','concat:dist', 'less:dev', 'clean:temp', 'uglify:dist'],
+				tasks: ['jshint', 'html2js:dist', 'copy:main', 'copy:assets', 'concat:dist', 'less:dev', 'clean:temp', 'uglify:dist'],
 				options: {
 					atBegin: true
 				}
