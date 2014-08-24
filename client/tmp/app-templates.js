@@ -7,5 +7,7 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "	<p class=\"subhead\">Lightweight full stack javascript boilerplate that makes using Mongo, Node, Angular, and Express a breeze.</p>\n" +
     "	<p>This is an example of an API service talking to a node enpoint (this will be empty if nothing is in your database):</p>\n" +
     "	<code>{{data}}</code>\n" +
+    "	<p>This is an example of a directive injected into the home controller</p>\n" +
+    "	<inputbox>\n" +
     "</section>");
 }]);

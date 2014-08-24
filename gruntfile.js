@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 		// Fresh build folder
 		clean: {
 			temp: {
-				// src: ['client/tmp']
+				src: ['client/tmp']
 			}
 		},
 		// Starts FE server

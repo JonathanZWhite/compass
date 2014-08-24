@@ -5,10 +5,10 @@ function InputBox() {
       restrict: 'ECA',
       transclude: true,
       scope: {},
-      template: '<input placeholder="Hello world!"/>'
+      templateUrl: 'inputBox/inputBox.tpl.html'
     };
 }
 
 angular
-    .module('directive.InputBox', [])
-    .directive('inputBox', InputBox);
+    .module('directives.InputBox', [])
+    .directive('inputbox', InputBox);

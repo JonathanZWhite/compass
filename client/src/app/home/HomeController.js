@@ -12,7 +12,8 @@ function HomeController ($scope, $location, API) {
 angular
   .module('app.home', [
     // Components
-    'services.API'
+    'services.API',
+    'directives.InputBox'
   ])
   .controller('HomeController', HomeController);
 
