@@ -17,7 +17,7 @@ function config ( $stateProvider, $urlRouterProvider ) {
       views: {
         'content@': {
           controller: 'HomeController',
-          templateUrl: '../client/src/app/home/home.tpl.html'
+          templateUrl: 'home/home.tpl.html'
         }
       },
       data:{ pageTitle: 'Home' }
@@ -34,10 +34,9 @@ angular
   .module('app', [
     // Modules
     'app.home',
-    // Components
-    'services.API',
     // Templates
-    'templates-dist',
+    'templates-app',
+    'templates-components',
     // Dependencies
     'ngAnimate',
     'ngResource',

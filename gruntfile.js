@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 				src: [
 					// App
 					'client/src/app/*.js',
-					// Template
+					// Templates
 					'client/tmp/*.js',
 					// Modules
 					'client/src/app/**/*.js',
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 		// Fresh build folder
 		clean: {
 			temp: {
-				src: ['client/tmp']
+				// src: ['client/tmp']
 			}
 		},
 		// Starts FE server
@@ -77,14 +77,25 @@ module.exports = function(grunt) {
 		},
 		// Converts templates to js
 		html2js: {
-			dist: {
+			app: {
+				options: {
+					base: 'client/src/app'
+				},
 				src: [
 					// Module templates
-					'client/src/app/**/*.tpl.html',
+					'client/src/app/**/*.tpl.html'
+				],
+				dest: 'client/tmp/app-templates.js'
+			},
+			components: {
+				options: {
+					base: 'client/src/components'
+				},
+				src: [
 					// Component templates
 					'client/src/components/**/*.tpl.html'
 				],
-				dest: 'client/tmp/templates.js'
+				dest: 'client/tmp/component-templates.js'
 			}
 		},
 		// Runs jshint
@@ -162,7 +173,7 @@ module.exports = function(grunt) {
 					// LESS
 					'client/src/less/*.less'
 				],
-				tasks: ['jshint', 'html2js:dist', 'copy:main', 'copy:assets', 'concat:dist', 'less:dev', 'clean:temp', 'uglify:dist'],
+				tasks: ['jshint', 'html2js', 'copy:main', 'copy:assets', 'concat:dist', 'less:dev', 'clean:temp', 'uglify:dist'],
 				options: {
 					atBegin: true
 				}
@@ -185,7 +196,7 @@ module.exports = function(grunt) {
 					// LESS
 					'client/src/less/*.less'
 				],
-				tasks: ['jshint', 'html2js:dist', 'concat:dist', 'less:dist','clean:temp', 'uglify:dist'],
+				tasks: ['jshint', 'html2js', 'concat:dist', 'less:dist','clean:temp', 'uglify:dist'],
 				options: {
 					atBegin: true
 				}

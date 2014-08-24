@@ -11,8 +11,6 @@ function HomeController ($scope, $location, API) {
 
 angular
   .module('app.home', [
-    // Templates
-    'templates-dist',
     // Components
     'services.API'
   ])
