@@ -1,7 +1,7 @@
 /*global angular:false */
   'use strict';
 
-function config ( $stateProvider, $urlRouterProvider ) {
+function config($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise( '/home' );
   $stateProvider
     // Example of abstract root
@@ -24,7 +24,11 @@ function config ( $stateProvider, $urlRouterProvider ) {
     });
 }
 
-function AppController ( $scope, $location, API) {
+function run() {
+  
+}
+
+function AppController($scope, $location, API) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $scope.pageTitle = toState.data.pageTitle;
   });
@@ -43,6 +47,7 @@ angular
     'ui.router'
   ])
   .config(config)
+  .run(run)
   .controller('AppController', AppController);
 
 
