@@ -3,6 +3,14 @@ Compass
 
 Lightweight full stack javascript boilerplate that makes using Mongo, Node, Angular, and Express a breeze.
 
+If you are new to the MEAN stack, check out some of these resources that go over the components that make up this boilerplate:
+
+[Angular: ](https://github.com/JonathanZWhite/frontend-resources/blob/master/README.md#angular)Superheroic JavaScript MVW Framework. This makes up the front-end component of the boilerplate
+
+[Node/Express: ](https://github.com/JonathanZWhite/frontend-resources/blob/master/README.md#node)Node along with Express as a framework makes up the API component of the boilerplate.
+
+[Mongo: ](https://github.com/JonathanZWhite/frontend-resources/blob/master/README.md#mongodb)MongoDB (from "humongous") is an open-source document database, and the leading NoSQL database. This makes up the database component of the boilerplate
+
 Motivation
 =======
 This boilerplate was written in order to let you get started on a MEAN stack project right away without having to worry about all the boilerplate code. 
