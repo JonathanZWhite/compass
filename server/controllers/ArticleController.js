@@ -6,14 +6,13 @@
  */
 
 var mongoose = require('mongoose'),
-	ArticleModelDep = require('../models/ArticleModel'),
-	ArticleModel = mongoose.model('ArticleModel');
+	Article = require('../models/ArticleModel');
 
 var ArticleController = function() {};
 
 ArticleController.prototype.create = function(req, res) {
 
-	var article = new ArticleModel(req.body);
+	var article = new Article(req.body);
 
 	article.save(function(err) {
 		if (err) {
@@ -27,7 +26,7 @@ ArticleController.prototype.create = function(req, res) {
 
 ArticleController.prototype.read = function(req, res) {
 
-	ArticleModel.find({}, function(err, data) {
+	Article.find({}, function(err, data) {
 		if (err || !data) {
 			res.status(400).send('Error: ' + err);
 		} else {
